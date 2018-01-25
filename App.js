@@ -1,7 +1,8 @@
+import * as Expo from 'expo';
 import React from 'react';
 import {Provider} from 'react-redux';
-import { StyleSheet, Text, View } from 'react-native';
-import {Store} from './components/Store';
+import Store from './components/Store';
+import Home from './components/Home';
 
 export default class App extends React.Component {
   state = { fontsAreLoaded: false };
@@ -17,23 +18,8 @@ export default class App extends React.Component {
 
   render() {
     if (this.state.fontsAreLoaded)
-      return <Provider store={Store}>
-        <View style={styles.container}>
-          <Text>Open up App.js to start working on your app!</Text>
-          <Text>Changes you make will automatically reload.</Text>
-          <Text>Shake your phone to open the developer menu.</Text>
-        </View>
-      </Provider>;
+      return <Provider store={Store}><Home/></Provider>;
     else
       return <Expo.AppLoading/>;
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
