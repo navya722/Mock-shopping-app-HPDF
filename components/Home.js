@@ -3,6 +3,7 @@ import {StatusBar, Platform, View, StyleSheet, TouchableOpacity} from 'react-nat
 import {Text, Icon} from 'native-base';
 import {StackNavigator, DrawerNavigator} from 'react-navigation';
 import Main from './Main';
+import Cart from './Cart';
 
 const DrawerButton = (props) => {
 	return (
@@ -17,7 +18,7 @@ const DrawerButton = (props) => {
 const CartButton = () => {
 	return (
     <View style={{paddingRight:20}}>
-      <TouchableOpacity onPress={() => {/*Open Cart*/}}>
+      <TouchableOpacity onPress={() => {"Cart"}}>
         <Icon name='cart'/>
       </TouchableOpacity>
     </View>
@@ -36,7 +37,16 @@ const Stacknavigation=StackNavigator(
         headerLeft:<DrawerButton navigation={navigation}/>,
         headerRight:<CartButton/>
       })
-    }
+    },
+	Cart:{
+      screen:Cart,
+      navigationOptions:({navigation}) => ({
+        title:'Elikart',
+        headerStyle:{
+          backgroundColor:'rgb(0,123,181)',
+        }
+      })
+	}
   }
 );
 
