@@ -18,7 +18,7 @@ const DrawerButton = (props) => {
 const CartButton = () => {
 	return (
     <View style={{paddingRight:20}}>
-      <TouchableOpacity onPress={() => props.navigation.navigate('Cart')}}>
+      <TouchableOpacity onPress={() => {props.navigation.navigate('Cart')}}>
         <Icon name='cart'/>
       </TouchableOpacity>
     </View>
